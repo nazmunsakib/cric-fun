@@ -14,11 +14,16 @@ import {
   Info,
   Loader2,
   RefreshCw,
+  Share2,
   Sparkles,
 } from "lucide-react";
 import { players } from "@/data/players";
 import type { CardData, CardKind } from "@/types/cricket";
-import { exportCardAsPng } from "@/lib/card-export";
+import {
+  CardShareUnsupportedError,
+  exportCardAsPng,
+  shareCardAsPng,
+} from "@/lib/card-export";
 import { formatCardDate } from "@/lib/date-utils";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -129,6 +134,7 @@ function CardPreview({
   const nodeRef = useRef<HTMLDivElement>(null);
   const [revision, setRevision] = useState(0);
   const [downloading, setDownloading] = useState(false);
+  const [sharing, setSharing] = useState(false);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
 
   const setRef = useCallback(
@@ -162,6 +168,39 @@ function CardPreview({
     }
   }
 
+  async function handleShare() {
+    if (!nodeRef.current) {
+      setFeedback({ tone: "error", message: "The card is still loading." });
+      return;
+    }
+    setSharing(true);
+    setFeedback(null);
+    try {
+      await shareCardAsPng(nodeRef.current, item.kind, data.date, {
+        title: `${item.title} · Funny Cricket`,
+        text: `${data.teamA.name} vs ${data.teamB.name} · ${formatCardDate(data.date)}`,
+      });
+      setFeedback({
+        tone: "success",
+        message: "Card shared successfully.",
+      });
+    } catch (error) {
+      if (error instanceof Error && error.name === "AbortError") {
+        setFeedback({ tone: "info", message: "Share cancelled." });
+      } else if (error instanceof CardShareUnsupportedError) {
+        setFeedback({ tone: "error", message: error.message });
+      } else {
+        setFeedback({
+          tone: "error",
+          message:
+            "Sharing failed. If the share sheet did not open, use Download PNG.",
+        });
+      }
+    } finally {
+      setSharing(false);
+    }
+  }
+
   function handleRegenerate() {
     setRevision((value) => value + 1);
     setFeedback({
@@ -188,23 +227,34 @@ function CardPreview({
         <div key={revision}>{item.render(data)}</div>
       </CardStage>
 
-      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
         <Button
           size="sm"
           variant="primary"
+          onClick={handleShare}
+          loading={sharing}
+          className="min-h-11 px-2"
+          aria-label={`Share ${item.title}`}
+        >
+          <Share2 size={13} />
+          Share
+        </Button>
+        <Button
+          size="sm"
+          variant="secondary"
           onClick={handleDownload}
           loading={downloading}
-          className="col-span-2 min-h-11 sm:col-span-1"
+          className="min-h-11 px-2"
           aria-label={`Download ${item.title}`}
         >
           <Download size={13} />
-          Download PNG
+          Download
         </Button>
         <Button
           size="sm"
           variant="secondary"
           onClick={() => onPreview(item)}
-          className="min-h-11"
+          className="min-h-11 px-2"
           aria-label={`Open a large preview of ${item.title}`}
         >
           <Eye size={13} />
@@ -214,7 +264,7 @@ function CardPreview({
           size="sm"
           variant="secondary"
           onClick={handleRegenerate}
-          className="min-h-11"
+          className="min-h-11 px-2"
           aria-label={`Regenerate ${item.title}`}
         >
           <RefreshCw size={13} />
@@ -304,8 +354,8 @@ export function CardGallery({ data }: { data: CardData }) {
             Your five match-day cards
           </h2>
           <p className="mt-1 text-xs text-slate-400">
-            Preview, refresh, or download each card independently. Every export
-            uses {formatCardDate(data.date)}.
+            Share straight to Messenger, WhatsApp, or another app with your
+            device&apos;s share sheet. Every card uses {formatCardDate(data.date)}.
           </p>
         </div>
         <div className="flex flex-col items-stretch gap-2 sm:items-end">

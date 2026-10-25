@@ -20,13 +20,16 @@ No login. No database. No backend. No paid services.
 - Daily series score entry for 2–3 match days (for example 2–1, 3–0, or a
   tied 1–1), with automatic winning-captain detection.
 - No lifetime win/loss totals — each card uses only the selected day's results.
+- Native share button on every card — send the PNG straight to Messenger,
+  WhatsApp, or another installed app through the device share sheet.
 - Five downloadable card types:
   1. Team Photo Card
   2. Best Batter Card
   3. Best Bowler Card
   4. Captain vs Captain Card
   5. Ashraful of the Day Card
-- Portrait PNG export at 1080 × 1350, with per-card download and Download All.
+- Portrait PNG export at 1080 × 1350, with per-card share, download, and
+  Download All.
 - Mobile-first responsive layout with sticky step actions, tablet and desktop
   layouts, and safe-area spacing.
 
@@ -231,6 +234,9 @@ public/
   kept in the browser.
 - Sadat currently uses a local placeholder avatar until a photo is added.
 - Card export is PNG only.
+- Direct image sharing uses the Web Share API, so it needs a supporting browser
+  and HTTPS (localhost is fine). Mobile Safari and Chrome on Android support
+  attaching image files; some desktop browsers do not show those targets.
 - Player photos should be local files under `public/`; there is no remote image
   upload or hosting.
 - Very large rosters are supported by the data model, but the 1080 × 1350 team
