@@ -38,7 +38,7 @@ export function AppHeader() {
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h1 className="text-lg font-black tracking-tight text-white sm:text-2xl">
-                Funny Cricket
+                Cric Fun
               </h1>
               <span className="hidden items-center gap-1 rounded-full border border-field/20 bg-field/[0.08] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.16em] text-field min-[360px]:inline-flex">
                 <Sparkles size={10} />

@@ -625,7 +625,7 @@ export function CricketBuilder() {
           </section>
 
           <p className="mt-4 text-center text-[10px] leading-relaxed text-slate-600">
-            Funny Cricket runs entirely in your browser. No account, database,
+            Cric Fun runs entirely in your browser. No account, database,
             or external image service is used.
           </p>
         </main>

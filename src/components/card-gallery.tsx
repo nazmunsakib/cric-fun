@@ -177,7 +177,7 @@ function CardPreview({
     setFeedback(null);
     try {
       await shareCardAsPng(nodeRef.current, item.kind, data.date, {
-        title: `${item.title} · Funny Cricket`,
+        title: `${item.title} · Cric Fun`,
         text: `${data.teamA.name} vs ${data.teamB.name} · ${formatCardDate(data.date)}`,
       });
       setFeedback({

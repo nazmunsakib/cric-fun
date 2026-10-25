@@ -56,7 +56,7 @@ export function CardTopBar({ date }: { date: string }) {
         <BrandMark />
         <div>
           <p className="text-[19px] font-black uppercase leading-none tracking-[0.12em] text-white">
-            Funny Cricket
+            Cric Fun
           </p>
           <p className="mt-[7px] text-[11px] font-bold uppercase tracking-[0.28em] text-slate-500">
             Daily cricket cards

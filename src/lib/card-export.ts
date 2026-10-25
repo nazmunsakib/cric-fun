@@ -10,7 +10,7 @@ const CARD_SLUGS: Record<CardKind, string> = {
 };
 
 export function cardFileName(kind: CardKind, date: string): string {
-  return `funny-cricket-${CARD_SLUGS[kind]}-${dateForFilename(date)}.png`;
+  return `cric-fun-${CARD_SLUGS[kind]}-${dateForFilename(date)}.png`;
 }
 
 export class CardShareUnsupportedError extends Error {

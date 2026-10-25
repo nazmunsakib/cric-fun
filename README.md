@@ -1,4 +1,4 @@
-# Funny Cricket
+# Cric Fun
 
 A local-first daily cricket card generator for a cricket group chat. Build a
 match-day pack in minutes, then download polished 1080 × 1350 PNG cards to share
@@ -143,7 +143,8 @@ winner automatically:
 
 The app does not store lifetime records. The only persisted preference is:
 
-- `funny-cricket:captions:v1` — Ashraful roast captions keyed by match date.
+- `cric-fun:captions:v1` — Ashraful roast captions keyed by match date.
+  Older `funny-cricket:captions:v1` data is migrated automatically.
 
 Important:
 
@@ -164,11 +165,11 @@ before generating the PNG.
 Filenames follow this pattern:
 
 ```text
-funny-cricket-best-batter-2026-10-25.png
-funny-cricket-team-photo-2026-10-25.png
-funny-cricket-best-bowler-2026-10-25.png
-funny-cricket-captain-vs-captain-2026-10-25.png
-funny-cricket-ashraful-of-the-day-2026-10-25.png
+cric-fun-best-batter-2026-10-25.png
+cric-fun-team-photo-2026-10-25.png
+cric-fun-best-bowler-2026-10-25.png
+cric-fun-captain-vs-captain-2026-10-25.png
+cric-fun-ashraful-of-the-day-2026-10-25.png
 ```
 
 Some browsers may ask for permission the first time **Download all 5** triggers
