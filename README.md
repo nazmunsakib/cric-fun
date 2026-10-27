@@ -95,10 +95,10 @@ marked in the app until all configured players have real photos.
 
 Current photo notes:
 
-- **Sadat** uses a placeholder avatar because there is no matching photo file
+- **Sohan** uses a placeholder avatar because there is no matching photo file
   in `public/players/`.
-- These photo files are present but are not currently assigned to a player in
-  the supplied roster: `sajedul.png`, `shafin.png`.
+- `sajedul.png` is present but is not currently assigned to a player in the
+  supplied roster.
 
 > Player names and photos are local to this project. All series scores and notes
 > are entered by you and are not stored as lifetime records.
@@ -233,7 +233,7 @@ public/
 - No lifetime player or captain statistics by design.
 - The current form is not persisted across reloads; only Ashraful captions are
   kept in the browser.
-- Sadat currently uses a local placeholder avatar until a photo is added.
+- Sohan currently uses a local placeholder avatar until a photo is added.
 - Card export is PNG only.
 - Direct image sharing uses the Web Share API, so it needs a supporting browser
   and HTTPS (localhost is fine). Mobile Safari and Chrome on Android support

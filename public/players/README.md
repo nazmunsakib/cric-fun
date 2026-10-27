@@ -27,11 +27,11 @@ loading. The original PNG uploads remain in this directory as source files. If
 you add a new photo, add the original here, create an optimized copy, and point
 the player's `image` path at the optimized file.
 
-- `placeholder-sadat.svg` is a generated placeholder because no matching photo
+- `placeholder-sohan.svg` is a generated placeholder because no matching photo
   file was found for that name.
-- `sajedul.png` and `shafin.png` are currently not mapped to a player in the
-  supplied roster. Confirm their names or add them to `src/data/players.ts` if
-  they should be selectable.
+- `sajedul.png` is currently not mapped to a player in the supplied roster.
+  Confirm the name or add it to `src/data/players.ts` if it should be
+  selectable.
 
 To replace a placeholder, add a real photo and update the player's `image` path
 in `src/data/players.ts`.

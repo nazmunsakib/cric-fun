@@ -5,11 +5,10 @@ import type { Player } from "@/types/cricket";
  *
  * Photos live in public/players. Player IDs are used internally for selections.
  *
- * Unmatched photo files currently in public/players:
+ * Unmatched photo file currently in public/players:
  * - sajedul.png
- * - shafin.png
  *
- * Sadat has no matching photo yet, so they use a local placeholder avatar
+ * Sohan has no matching photo yet, so they use a local placeholder avatar
  * until an image is added.
  */
 export const players: Player[] = [
@@ -17,11 +16,7 @@ export const players: Player[] = [
   { id: "rakib", name: "Rakib", image: "/players/optimized/rakib.jpg" },
   { id: "rabby", name: "Rabby", image: "/players/optimized/rabby.jpg" },
   { id: "suhad", name: "Suhad", image: "/players/optimized/suhad.jpg" },
-  {
-    id: "sadat",
-    name: "Sadat",
-    image: "/players/placeholder-sadat.svg",
-  },
+  { id: "sadat", name: "Sadat", image: "/players/optimized/sadat.jpg" },
   {
     id: "don-forid",
     name: "Don Forid",
@@ -48,6 +43,16 @@ export const players: Player[] = [
   { id: "imad", name: "Imad", image: "/players/optimized/imad.jpg" },
   { id: "safayet", name: "Safayet", image: "/players/optimized/safayet.jpg" },
   { id: "sagor", name: "Sagor", image: "/players/optimized/sagor.jpg" },
+  {
+    id: "shafin",
+    name: "Shafin",
+    image: "/players/optimized/shafin.jpg",
+  },
+  {
+    id: "sohan",
+    name: "Sohan",
+    image: "/players/placeholder-sohan.svg",
+  },
 ];
 
 export const playersById = new Map(players.map((player) => [player.id, player]));
