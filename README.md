@@ -97,8 +97,6 @@ Current photo notes:
 
 - **Sohan** uses a placeholder avatar because there is no matching photo file
   in `public/players/`.
-- `sajedul.png` is present but is not currently assigned to a player in the
-  supplied roster.
 
 > Player names and photos are local to this project. All series scores and notes
 > are entered by you and are not stored as lifetime records.

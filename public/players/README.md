@@ -29,9 +29,6 @@ the player's `image` path at the optimized file.
 
 - `placeholder-sohan.svg` is a generated placeholder because no matching photo
   file was found for that name.
-- `sajedul.png` is currently not mapped to a player in the supplied roster.
-  Confirm the name or add it to `src/data/players.ts` if it should be
-  selectable.
 
 To replace a placeholder, add a real photo and update the player's `image` path
 in `src/data/players.ts`.

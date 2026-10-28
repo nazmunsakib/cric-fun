@@ -5,9 +5,6 @@ import type { Player } from "@/types/cricket";
  *
  * Photos live in public/players. Player IDs are used internally for selections.
  *
- * Unmatched photo file currently in public/players:
- * - sajedul.png
- *
  * Sohan has no matching photo yet, so they use a local placeholder avatar
  * until an image is added.
  */
@@ -52,6 +49,11 @@ export const players: Player[] = [
     id: "sohan",
     name: "Sohan",
     image: "/players/placeholder-sohan.svg",
+  },
+  {
+    id: "sajedul",
+    name: "Sajedul",
+    image: "/players/optimized/sajedul.jpg",
   },
 ];
 
